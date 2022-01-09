@@ -5,6 +5,7 @@ const ulEl = document.querySelector("#ul-el")
 
 inputBtn.addEventListener("click", () => {
   myLeads.push(inputEl.value)
+  inputEl.value = ""
   renderLeads()
 })
 
