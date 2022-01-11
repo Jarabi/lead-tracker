@@ -13,7 +13,7 @@ if(leadsFromLocalStorage) {
 }
 
 tabBtn.addEventListener("click", () => {
-  chrome.tabs.query({active: true, currentWindow: true}, tabs => {
+  chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
     myLeads.push(tabs[0].url)
     localStorage.setItem("myLeads", JSON.stringify(myLeads))
     render(myLeads)
@@ -23,12 +23,13 @@ tabBtn.addEventListener("click", () => {
 function render(leads) {
   let listItems = ""
   for (let i = 0; i < leads.length; i++) {
-    listItems +=
-    `<li>
+    listItems += `
+      <li>
         <a href="${leads[i]}" target="_blank">
           ${leads[i]}
         </a>
-    </li>`
+      </li>
+    `
   }
 
   ulEl.innerHTML = listItems
