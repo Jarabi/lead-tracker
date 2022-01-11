@@ -5,11 +5,10 @@ const ulEl = document.querySelector("#ul-el")
 
 let leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"))
 
-if(Boolean(leadsFromLocalStorage)) {
-  myLeads.push(leadsFromLocalStorage)
+if(leadsFromLocalStorage) {
+  myLeads = leadsFromLocalStorage
   renderLeads()
 }
-// console.log(leadsFromLocalStorage);
 
 inputBtn.addEventListener("click", () => {
   myLeads.push(inputEl.value)
@@ -29,6 +28,6 @@ function renderLeads() {
         </a>
     </li>`
   }
-  
+
   ulEl.innerHTML = listItems
 }
